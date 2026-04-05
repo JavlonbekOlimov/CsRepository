@@ -8,7 +8,7 @@ import java.util.List;
 
 
     @org.mapstruct.Mapper(componentModel = "spring")
-    public interface MenuMapper {
+    public interface CsMapper {
 
         @Mapping(target = "id", ignore = true)
         CsDAO toDao(CsDTO csDTO);
