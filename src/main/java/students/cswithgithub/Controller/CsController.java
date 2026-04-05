@@ -8,13 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import students.cswithgithub.DTO.CsDTO;
 
 @RestController
-    @RequestMapping("/Cs")
-//tt
+@RequestMapping("/CS")
     public class CsController {
 
-        @PostMapping("/create")
-        public Response create(@RequestBody CsDTO dto) {
-            return null;
-
-        }
+    //methods...
 }
