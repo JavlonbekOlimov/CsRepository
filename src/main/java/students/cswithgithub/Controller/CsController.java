@@ -12,16 +12,7 @@ import students.cswithgithub.Services.CsService;
 @RequestMapping("/CS")
     public class CsController {
 
-    @PostMapping("/create")
-    public Response create(@RequestBody CsDTO csDTO) {
 
-        String result = CsService.addD(csDTO);
-
-        if (result.equalsIgnoreCase("OK")) {
-            return new Response(0, "OK", "Successfully", null);
-        }
-        return new Response(5, "Error", "Internal error", null);
-    }
 
 
 }
