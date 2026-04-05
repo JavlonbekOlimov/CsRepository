@@ -6,11 +6,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import students.cswithgithub.DTO.CsDTO;
+import students.cswithgithub.Services.CsService;
 
 @RestController
 @RequestMapping("/CS")
     public class CsController {
 
-    //methods...
+    @PostMapping("/create")
+    public Response create(@RequestBody CsDTO csDTO) {
+
+        String result = CsService.addD(csDTO);
+
+        if (result.equalsIgnoreCase("OK")) {
+            return new Response(0, "OK", "Successfully", null);
+        }
+        return new Response(5, "Error", "Internal error", null);
+    }
+
 
 }
