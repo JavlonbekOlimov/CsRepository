@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import students.cswithgithub.CsMapper.CsMapper;
+import students.cswithgithub.DAO.CsDAO;
 import students.cswithgithub.DTO.CsDTO;
 import students.cswithgithub.DTO.Response;
 import students.cswithgithub.Services.CsService;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/CS")
@@ -28,4 +32,17 @@ import students.cswithgithub.Services.CsService;
         }
         return new Response(1,"error",null);
 }
+    @GetMapping("/getById/{id}")
+    public Response getById(@PathVariable Integer id) {
+        Optional<CsDAO> dao = csService.getById(id);
+
+        if (dao.isPresent()) {
+            return new Response<>(0, "OK", csMapper.toDto(dao.get()));
+        }
+        return new Response(4, "not found", null);
+    } @GetMapping("/getAll")
+    public Response<List<CsDTO>> getAllMenu() {
+        return csService.getAll();
+    }
+
 }
