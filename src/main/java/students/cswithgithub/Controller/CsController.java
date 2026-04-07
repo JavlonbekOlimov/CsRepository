@@ -4,7 +4,7 @@ package students.cswithgithub.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import students.cswithgithub.CsMapper.CsMapper;
+import students.cswithgithub.Mapper.CsMapper;
 import students.cswithgithub.DAO.CsDAO;
 import students.cswithgithub.DTO.CsDTO;
 import students.cswithgithub.DTO.Response;
