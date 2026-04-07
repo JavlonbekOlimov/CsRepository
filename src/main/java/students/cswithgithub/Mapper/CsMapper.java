@@ -1,4 +1,4 @@
-package students.cswithgithub.CsMapper;
+package students.cswithgithub.Mapper;
 
 import org.mapstruct.Mapping;
 import students.cswithgithub.DAO.CsDAO;
