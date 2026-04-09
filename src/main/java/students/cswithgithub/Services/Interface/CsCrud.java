@@ -13,5 +13,5 @@ public interface CsCrud {
     Response<List<CsDTO>> getAll();
 
     Optional<CsDAO> getById(Integer id);
-    Integer  delete(Integer id);
+    Response  delete(Integer id);
 }

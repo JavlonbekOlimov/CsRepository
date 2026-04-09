@@ -2,12 +2,12 @@ package students.cswithgithub.Services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.Repository;
 import org.springframework.stereotype.Service;
-import students.cswithgithub.CsMapper.CsMapper;
-import students.cswithgithub.Mapper.CsMapper;
+
 import students.cswithgithub.DAO.CsDAO;
 import students.cswithgithub.DTO.CsDTO;
+import students.cswithgithub.DTO.Response;
+import students.cswithgithub.Mapper.CsMapper;
 import students.cswithgithub.Repository.CsRepository;
 import students.cswithgithub.Services.Interface.CsCrud;
 
@@ -21,19 +21,24 @@ public class CsService implements CsCrud {
     private CsRepository repository;
 
     @Autowired
-    private CsMapper mapper;
+    private students.cswithgithub.Mapper.CsMapper mapper;
 
+    @Override
     public Response delete(Integer id) {
-        if (!csRepository.existsById(id)) {
+        if (!repository.existsById(id)) {
             return new Response(1, "Topilmadi", null);
         }
-        csRepository.deleteById(id);
+        repository.deleteById(id);
         return new Response(0, "O‘chirildi", null);
+    }
+
     @Override
     public String create(CsDTO csDTO) {
-        repository.save(mapper.toDao(csDTO));
+      //  repository.save(mapper.toDao(csDTO));
         return "Ok";
-    } @Override
+    }
+
+    @Override
     public Response<List<CsDTO>> getAll() {
         List<CsDAO> daoList = repository.findAll();
         if (!daoList.isEmpty()) {
@@ -47,6 +52,5 @@ public class CsService implements CsCrud {
         Optional<CsDAO> csDAO = repository.findById(id);
         return csDAO;
     }
-
-
 }
+

@@ -23,6 +23,13 @@ import java.util.Optional;
 
     @Autowired
     private CsMapper csMapper;
+
+    @DeleteMapping("/delete")
+    public Response delete(@RequestParam("id") Integer id) {
+        return csService.delete(id);
+        }
+
+
     @PostMapping("/create")
     public Response create(@RequestBody CsDTO csDTO) {
         String s = csService.create(csDTO);
@@ -44,5 +51,6 @@ import java.util.Optional;
     public Response<List<CsDTO>> getAllMenu() {
         return csService.getAll();
     }
+    }
 
-}
+
